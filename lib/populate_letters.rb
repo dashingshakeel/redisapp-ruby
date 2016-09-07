@@ -4,14 +4,15 @@ class PopulateLetters
      @letters=[]
      @depth=depth
   end
-  def execute
-    spawn_letter ""
+  def execute &block
+    spawn_letter "",&block
   end
-  def spawn_letter prefix
+  def spawn_letter prefix,&block
     "A".upto "Z" do |letter|
       new_letter=prefix + letter
       letters << new_letter
-      spawn_letter new_letter if new_letter.length < @depth
+      yield new_letter if block_given?
+      spawn_letter(new_letter,&block) if new_letter.length < @depth
      end
   end
 end
