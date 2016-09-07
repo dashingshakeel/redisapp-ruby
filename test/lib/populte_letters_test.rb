@@ -9,13 +9,11 @@ describe PopulateLetters do
   end
 
   it "populates a two letters deep array (AA->ZZ)" do
-    skip
     service=PopulateLetters.new 2
     service.execute 
     service.letters.must_include "AA"
   end
   it "populates a three letters deep array"do
-    skip
     service=PopulateLetters.new 3
     service.execute 
     service.letters.must_include "AAA"
