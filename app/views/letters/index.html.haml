@@ -1,12 +1,13 @@
 %h1 Letters
 
-.col
-%ul
- -@letters.each do | letter|
-  %li
-   =letter.name
-   %small=letter.scroe
+.col-md-9
+ %ul
+  -@letters.each do | letter|
+   %li
+    =letter.name
+    %small=letter.scroe
 
-.col-md-3
+.col-md.3
+ =render "top"
    
  
