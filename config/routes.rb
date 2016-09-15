@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'emails' => "emails#index"
+
+  post 'emails/standard'
+
+  post 'emails/delayed'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :letters,only: [:index] do
