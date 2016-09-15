@@ -1,5 +1,7 @@
+require "letter_redis_repository"
 class Letter < ActiveRecord::Base
-  def self.top_10
-    limit(10).order(scroe: :desc)
+   def self.top_10
+    ids= LetterRedisRepository.top
+    where(id: ids)
   end
 end

@@ -1,8 +1,8 @@
 %h2 Top 10
--cache top_letter_cache do
- %ol 
-  -Letter.top_10.each do |letter|
-   %li
-    =letter.name
-    %small=letter.scroe
+
+%ol 
+ -Letter.top_10.each do |letter|
+  %li
+   =letter.name
+   %small=letter.scroe
    
