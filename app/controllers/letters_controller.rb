@@ -4,6 +4,18 @@ class LettersController < ApplicationController
   def index
     @letters=Letter.all
   end
+  def upvote
+    @letter=Letter.find params[:id]
+    @letter.update_attribute :scroe , @letter.scroe+1
+    LetterRedisRepository.increament @letter
+    redirect_to  letters_path,notice: "upvotedd"
+  end
+  def downvote
+    @letter=Letter.find params[:id]
+    @letter.update_attribute :scroe , @letter.scroe-1
+    LetterRedisRepository.decreament @letter
+    redirect_to  letters_path,notice: "downvotedd"
+  end
 
   
 end

@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'redcarpet'
 gem 'sidekiq'
+gem 'httparty'
 
 gem "redis"
 gem 'redis-rails'
