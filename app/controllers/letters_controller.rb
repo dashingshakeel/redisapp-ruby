@@ -8,14 +8,20 @@ class LettersController < ApplicationController
     @letter=Letter.find params[:id]
     @letter.update_attribute :scroe , @letter.scroe+1
     LetterRedisRepository.increament @letter
+
+    MessageWorker.perform_async "announymous",<<EOF,letters_url
+    the letter #{@letter.name} has upvoted
+EOF 
+
     redirect_to  letters_path,notice: "upvotedd"
   end
   def downvote
     @letter=Letter.find params[:id]
     @letter.update_attribute :scroe , @letter.scroe-1
     LetterRedisRepository.decreament @letter
+    MessageWorker.perform_async "announymous", <<EOF, letters_url
+    the letter #{@letter.name} has downvoted
+EOF 
     redirect_to  letters_path,notice: "downvotedd"
   end
-
-  
 end
