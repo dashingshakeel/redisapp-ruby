@@ -3,15 +3,15 @@ class Message
     @body, @user, @url = body,user,url
   end
   def send
-    HTTParty.post "http://localhost:3010/message",body: {
+    HTTParty.post "http://localhost:3010/messages",body: {
       message: {
-        body: @body,
         user: @user,
+        body: @body,
         url: @url
       }
-    }.to_json,headers: {
+    }.to_json, headers: {
       "Accept"=> "application/json",
-      "Content-type" => "aplication/json"
+      "Content-Type" => "application/json"
     }
   end
 
