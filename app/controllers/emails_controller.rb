@@ -11,7 +11,11 @@ class EmailsController < ApplicationController
   end
 
   def delayed
+    SendEmailWorker.perform_async("SendEmail",recipients)
 
+    SendEmailWorker.perform_async("AnotherEmail",recipients)
+
+    redirect_to emails_path, notice: "Send email delayed"
   end
   private
   def recipients
