@@ -15,6 +15,6 @@ class EmailsController < ApplicationController
   end
   private
   def recipients
-    ["shkeelrauf@gmail.com"]
+    ["shkldon0@gmail.com"]
   end
 end

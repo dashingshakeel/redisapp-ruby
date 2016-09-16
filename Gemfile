@@ -12,6 +12,7 @@ gem 'autoprefixer-rails'
 gem 'redcarpet'
 gem 'sidekiq'
 gem 'httparty'
+gem 'figaro'
 
 gem "redis"
 gem 'redis-rails'
